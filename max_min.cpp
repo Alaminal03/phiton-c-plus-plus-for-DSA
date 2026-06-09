@@ -9,9 +9,9 @@ int main()
         cin >> a[i];
     }
 
-    int mn = INT_MAX;
-    int mx = INT_MIN;
-    for (int i = 0; i < 3;i++)
+    int mn = a[0];
+    int mx = a[0];
+    for (int i = 1; i < 3;i++)
     {
         int temp = a[i];
         mn = min(mn, temp);
