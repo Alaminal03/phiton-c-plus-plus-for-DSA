@@ -3,25 +3,35 @@ using namespace std;
 
 int main()
 {
-    int n;
-    cin >> n;
+    int e = 0, g = 0, y = 0, p = 0, t = 0;
+    string name;
+    cin >> name;
+    for(auto & x:name)
+    {
+        x = tolower(x);
+        if(x=='e')
+        {
+            e++;
+        }
+        else if(x=='g')
+        {
+            g++;
+        }
+        else if(x=='y')
+        {
+            y++;
+        }
+        else if(x=='p')
+        {
+            p++;
+        }
+        else if(x=='t')
+        {
+            t++;
+        }
 
-    int a[n];
-    for (int i = 0; i < n;i++)
-    {
-        cin >> a[i];
     }
-    sort(a, a + n);
-    for (int i = 0; i < n;i++)
-    {
-        cout << a[i] << " ";
-    }
-    cout << endl;
-    sort(a, a + n, greater<int>());
-    for (int i = 0; i < n;i++)
-    {
-        cout << a[i] << " ";
-    }
+    cout << min({e, g, y, p, t});
 
-        return 0;
+    return 0;
 }
