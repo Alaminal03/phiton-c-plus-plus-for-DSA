@@ -3,27 +3,14 @@ using namespace std;
 
 int main()
 {
-    char a[100000];
-    cin.getline(a, 100000);
-    int lena = strlen(a);
-    // cin.ignore();
-    char b[100000];
-    cin.getline(b, 100000);
-    int lenb = strlen(b);
-    lenb = remove(b, b + lenb, ' ') - b;
-    b[lenb] = '\0';
+    string name;
+    cin >> name;
 
-    sort(a, a+lena);
-
-    for (int i = 0; i < lena;i++)
+    while(name.find("EGYPT") != string::npos)
     {
-        cout << a[i];
+        int empty = name.find("EGYPT");
+        name.replace(empty, 5, " ");
     }
-    cout <<endl;
-    sort(b,b+lenb);
-    for (int i = 0; i < lenb;i++)
-    {
-        cout << b[i];
-    }
-
+    cout << name;
+    return 0;
 }
