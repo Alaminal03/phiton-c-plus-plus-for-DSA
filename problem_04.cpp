@@ -1,38 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class Student
-{
-    public:
-    int id;
-    string name;
-    char sec;
-    int num;
-};
-
 int main()
 {
-    int n;
+    int n,count=0;
     cin >> n;
 
-    Student s[3];
-    while(n--)
+    for (int i = 0; i < n;i++)
     {
+        string number;
+        int sum = 0;
+
         for (int i = 0; i < 3;i++)
         {
-            cin >> s[i].id >> s[i].name >> s[i].sec >> s[i].num;
+            sum += number[i];
         }
-        Student best = s[0];
-        for (int i = 0; i < 3;i++)
+        int add = 0;
+        for (int j = 3; j < 6;j++)
         {
-            if((s[i].num > best.num)||(s[i].num==best.num && s[i].id < best.id))
-            {
-                best = s[i];
-            }
+            add += number[j];
         }
-         cout << best.id << " " << best.name << " " << best.sec << " " << best.num << "\n";
+        if(sum==add)
+        {
+            cout << "YES" << endl;
+        }
+        else
+        {
+            cout << "NO" << endl;
+        }
+        
     }
-
-
-    return 0;
+    
+        return 0;
 }
