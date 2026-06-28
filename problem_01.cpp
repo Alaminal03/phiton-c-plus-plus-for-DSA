@@ -3,35 +3,20 @@ using namespace std;
 
 int main()
 {
-    int e = 0, g = 0, y = 0, p = 0, t = 0;
-    string name;
-    cin >> name;
-    for(auto & x:name)
+
+    int n;
+    cin >> n;
+
+    for (int i = 0; i < n;i++)
     {
-        x = tolower(x);
-        if(x=='e')
+        string s, x;
+        cin >> s >> x;
+        while (s.find(x) != string::npos)
         {
-            e++;
+            int res = s.find(x);
+            s.replace(res, x.size(), "#");
         }
-        else if(x=='g')
-        {
-            g++;
-        }
-        else if(x=='y')
-        {
-            y++;
-        }
-        else if(x=='p')
-        {
-            p++;
-        }
-        else if(x=='t')
-        {
-            t++;
-        }
-
+        cout << s << endl;
     }
-    cout << min({e, g, y, p, t});
-
-    return 0;
+        return 0;
 }
