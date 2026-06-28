@@ -3,12 +3,23 @@ using namespace std;
 
 int main()
 {
-    string name;
-    cin >> name ;
-    string n = name;
-    reverse(name.begin(), name.end());
+    string word;
+    string n;
+    getline(cin,n);
 
-    if(n==name)
+    stringstream nn(n);
+
+    int count = 0;
+
+    while(nn >> word)
+    {
+        if(word == "Jessica")
+        {
+            count++;
+            break;
+        }
+    }
+    if(count != 0)
     {
         cout << "YES";
     }
@@ -16,5 +27,6 @@ int main()
     {
         cout << "NO";
     }
+
     return 0;
 }
