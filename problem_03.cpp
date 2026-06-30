@@ -1,16 +1,34 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+class Student 
+{
+    public:
+        string nm;
+        int cls;
+        char sec;
+        int id;
+};
+
+
 int main()
 {
-    string name;
-    cin >> name;
+    int N;
+    cin >> N;
 
-    while(name.find("EGYPT") != string::npos)
+    Student a[N];
+    for (int i = 0; i < N;i++)
     {
-        int empty = name.find("EGYPT");
-        name.replace(empty, 5, " ");
+        cin >> a[i].nm >> a[i].cls >> a[i].sec >> a[i].id;
     }
-    cout << name;
-    return 0;
+    for (int i = 0; i < N/2;i++)
+    {
+        swap(a[i].sec, a[N - i - 1].sec);
+    }
+    for (int i = 0; i < N;i++)
+    {
+        cout << a[i].nm <<" " << a[i].cls <<" " << a[i].sec <<" " << a[i].id << endl;
+    }
+
+        return 0;
 }
