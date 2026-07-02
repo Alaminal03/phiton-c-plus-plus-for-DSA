@@ -1,47 +1,63 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
+
+class Student
+{
+public:
+    string name;
+    int cls;
+    char s;
+    long long id;
+    int math;
+    int eng;
+};
 
 int main()
 {
-    int T;
-    cin >> T;
+    int n;
+    cin >> n;
 
-    while (T--)
+    Student a[n];
+
+    for (int i = 0; i < n; i++)
     {
-        int N, S;
-        cin >> N >> S;
+        cin >> a[i].name >> a[i].cls >> a[i].s
+            >> a[i].id >> a[i].math >> a[i].eng;
+    }
 
-        int A[100];
-
-        for (int i = 0; i < N; i++)
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
         {
-            cin >> A[i];
-        }
-
-        bool found = false;
-
-        for (int i = 0; i < N; i++)
-        {
-            for (int j = i + 1; j < N; j++)
+            if (a[j].eng > a[i].eng)
             {
-                for (int k = j + 1; k < N; k++)
+                swap(a[i], a[j]);
+            }
+            else if (a[j].eng == a[i].eng)
+            {
+                if (a[j].math > a[i].math)
                 {
-                    if (A[i] + A[j] + A[k] == S)
+                    swap(a[i], a[j]);
+                }
+                else if (a[j].math == a[i].math)
+                {
+                    if (a[j].id < a[i].id)
                     {
-                        found = true;
+                        swap(a[i], a[j]);
                     }
                 }
             }
         }
+    }
 
-        if (found)
-            {
-                cout << "YES" << endl;
-            }
-        else
-            {
-                cout << "NO" << endl;
-            }
+    for (int i = 0; i < n; i++)
+    {
+        cout << a[i].name << " "
+             << a[i].cls << " "
+             << a[i].s << " "
+             << a[i].id << " "
+             << a[i].math << " "
+             << a[i].eng << endl;
     }
 
     return 0;
